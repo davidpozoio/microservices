@@ -1,0 +1,23 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: gateway-ms
+  cloud:
+    gateway:
+      routes:
+        - id: students-ms
+          uri: localhost:38295
+          predicates:
+            - Path=/students/**
+
+        - id: grades-ms
+          uri: localhost:39209
+          predicates:
+            - Path=/grades/**
+    loadBalancer:
+      ribbon:
+        enabled: 'false'
+eureka:
+  instance:
+    instance-id=${spring.application.name}:${server.port}

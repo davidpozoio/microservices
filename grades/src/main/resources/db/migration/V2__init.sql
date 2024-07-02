@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS grades(
+    id SERIAL PRIMARY KEY,
+    score DECIMAL(3, 2) NOT NULL
+)
